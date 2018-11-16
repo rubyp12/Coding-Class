@@ -1,0 +1,70 @@
+<html>
+<head>
+<script src= "scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+</head>
+    <body>
+
+            <p id ="test1" align= "center">This heading can be applied JQuery effects</p>
+            <p align= "center">Click the buttons and see the effects</p>
+        
+            <input id="button1" type ="button" value="Show"></input>
+            <input id ="button2" type ="button" value= "Hide"></input>
+            <input id ="button3" type ="button"value= "ToggleShow/Hide"></input>
+            <input id ="button4" type ="button" value= "Slide Up"></input>
+            <input id ="button5" type ="button"value= "Slide Down"></input>
+            <input id ="button6" type ="button" value= "Slide Toggle"></input>
+            <input id ="button7" type ="button" value= "Fade In"></input>
+            <input id ="button8" type ="button" value= "Fade Out"></input>
+            <input id ="button9" type ="button" value= "Fade Toggle"></input>
+            <input id ="button10" type ="button" value= "Animate"></input>
+          
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+            $("#button1").click(function(){
+                //$("p.test").Show();
+          $("#test1").show();
+              });
+              $("#button2").click(function(){
+                //$("p.test").Hide();
+          $("#test1").hide();
+              });
+              $("#button3").click(function(){
+                //$("p.test").ToggleShow/Hide();
+          $("#test1").toggle();
+              });
+              $("#button4").click(function(){
+                //$("p.test").Slide Up();
+          $("#test1").slideUp();
+              });
+              $("#button5").click(function(){
+                //$("p.test").Slide Down();
+          $("#test1").slideDown();
+              });
+              $("#button6").click(function(){
+                //$("p.test").Slide Toggle();
+          $("#test1").slideToggle();
+              });
+              $("#button7").click(function(){
+                //$("p.test").Fade In();
+          $("#test1").fadeIn();
+              });
+              $("#button8").click(function(){
+                //$("p.test").Fade Out();
+          $("#test1").fadeOut();
+              });
+              $("#button9").click(function(){
+                //$("p.test").Fade Toggle();
+          $("#test1").fadeToggle();
+              });
+              $("#button10").click(function(){
+                //$("p.test").Animate();
+          $("#test1").animate({width:"100", opacity: "1.0", marginRight: "0in", fontSize: "100%", },1000);
+              });
+            });
+            </script>
+    </body>
+    
+    </html>
