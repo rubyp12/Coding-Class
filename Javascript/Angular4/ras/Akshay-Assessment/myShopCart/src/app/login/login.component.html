@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="container" style="width: 50%; 
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;">
+    <form #frm="ngForm">
+      <div class="form-group">
+          <label for="username">
+            UserName:
+          </label>
+          <input type="text" pattern="[a-zA-Z]+" #UserIDControl="ngModel" name="username" [(ngModel)]="username" class="form-control" style="width:auto;" required>
+      </div>
+      <div *ngIf="UserIDControl?.touched && UserIDControl?.invalid" class="alert alert-danger"> 
+          <div *ngIf="UserIDControl.errors?.required">
+            UserName is required
+         </div>    
+         <div *ngIf="UserIDControl.errors?.pattern">
+            UserName is invalid 
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="password">
+            Password:
+          </label>
+          <input type="password" pattern="[a-zA-Z]+" #PasswordControl="ngModel" name="password" [(ngModel)]="username" class="form-control" style="width:auto;" required>
+      </div>
+      <div *ngIf="PasswordControl?.touched && PasswordControl?.invalid" class="alert alert-danger"> 
+          <div *ngIf="PasswordControl.errors?.required">
+            PasswordControl is required
+          </div>    
+          <div *ngIf="PasswordControl.errors?.pattern">
+            PasswordControl is invalid 
+          </div>    
+      </div>
+      <button class="btn btn-success">Submit</button>
+      <br/><br/>
+    <div>
+      <a>Create New Account</a>
+    </div>    
+    </form>
+     
+  </div>
+  
+    <br/><br/>
+    <div>
+      <button  style="background-color: yellow" class="btn">Buy Now</button>
+    </div>
+</div>

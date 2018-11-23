@@ -1,0 +1,66 @@
+<div class="container">
+  <!-- <div class="jumbotron"> -->
+    <form #frm="ngForm" (ngSubmit)="addItems(frm)" ngNativeValidate *ngIf="!toggleForm">
+      <br><br><br>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add Item</h3>
+        </div>
+      </div>     
+      <div class="form-group">
+        <label for="Name">
+            Name:
+        </label>
+        <input type="text" name="name" [(ngModel)]="name" required pattern="[a-zA-Z][a-zA-Z]+" #nameControl="ngModel" class="form-control">
+
+        <div *ngIf="nameControl?.touched && nameControl?.invalid" class="alert alert-danger">
+          <div *ngIf="nameControl.errors?.required">Name must required</div>
+          <div *ngIf="nameControl.errors?.pattern">Please enter correct name</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity">
+          Quantity:
+        </label>
+        <input type="text" name="quantity" [(ngModel)]="quantity" #quantityControl="ngModel" required class="form-control">
+        <div *ngIf="quantityControl?.touched && quantityControl?.invalid" class="alert alert-danger">
+          <div *ngIf="quantityControl.errors?.required">Please enter ID</div>
+          <!-- <div *ngIf="idControl.errors?.pattern">Please enter valid ID</div> -->
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Add Item</button><br>
+      
+    </form>  
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Shopping Lists</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table-bordered table-hover" style ="width:50%">
+        <thead>
+          <tr>
+  
+            <th>Name</th>
+            <th>Quantity</th>            
+            <th></th>
+            <th></th>
+            <th></th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of items;">
+  
+            <!-- <td style="padding-right: 10px">{{p.id}}</td> -->
+            <td>{{p.name}}</td>
+            <td>{{p.quantity }}</td>
+          </tr>
+          <tr *ngIf="!items || items.length==0">
+            <td colspan="3">No Records to display</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

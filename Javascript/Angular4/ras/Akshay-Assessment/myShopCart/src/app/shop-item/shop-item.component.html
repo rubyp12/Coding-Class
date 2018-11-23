@@ -1,0 +1,38 @@
+<h3>Add Item</h3>
+<div class="container">
+      <form #frm="ngForm">
+        <div class="form-group">
+            <label for="name">
+              Name:
+            </label>
+            <input type="text" pattern="[a-zA-Z]+" #UserIDControl="ngModel" name="name" [(ngModel)]="name" class="form-control" required>
+        </div>
+        <div *ngIf="UserIDControl?.touched && UserIDControl?.invalid" class="alert alert-danger"> 
+            <div *ngIf="UserIDControl.errors?.required">
+              UserName is required
+           </div>    
+           <div *ngIf="UserIDControl.errors?.pattern">
+              UserName is invalid 
+            </div>    
+        </div>
+        <div class="form-group">
+            <label for="quantity">
+              Quantiiy:
+            </label>
+            <input type="text" pattern="[0-9]+" name="quantity" #QuantityControl="ngModel" [(ngModel)]="quantity" class="form-control" required>
+        </div>
+        <div *ngIf="QuantityControl?.touched && QuantityControl?.invalid" class="alert alert-danger"> 
+            <div *ngIf="QuantityControl.errors?.required">
+                Quantity is required
+           </div>    
+           <div *ngIf="QuantityControl.errors?.pattern">
+              Quantity is invalid 
+            </div>    
+        </div>
+        <button class="btn btn-success">Add Item</button>
+        <br/><br/>
+      </form>
+      <br/><br/>
+      
+  </div>
+  <h3>Shoppin List</h3>

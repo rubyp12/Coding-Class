@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Currency
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">USD</a></li>
+      <li><a href="#">INR</a></li>      
+    </ul>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class=row>
+    <br>
+    <div class="col-lg-3 col-md-3 col-sm-3" *ngFor="let i of ShoppingItem">
+      <div class="panel panel-primary">
+        <div class = "panel-body">
+        <img class="imageClass " [src]="i.photoPath" />
+      </div>
+      <div class="panel-header">
+        <h4>{{i.name}}</h4>
+      </div>      
+      <div class="panel-footer">
+        <h5>{{i.price}}</h5>
+      </div>
+      <div class="panel-footer">
+        <button type="submit" name="button">Add to cart</button><br>
+      </div>
+    </div>
+  </div>
+</div>

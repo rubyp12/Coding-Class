@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- <div class="jumbotron"> -->
+    <form #frm="ngForm" (ngSubmit)="loginForm(frm)" ngNativeValidate *ngIf="!toggleForm">
+      <!-- <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Welcome to Shopping Cart</h3>
+        </div>
+      </div> -->
+      <br><br>
+      <div class="form-group">
+        <label for="UserName">
+          UserName:
+        </label>
+        <input type="text" name="userName" [(ngModel)]="userName" required pattern="[a-zA-Z][a-zA-Z]+" #userNameControl="ngModel" class="form-control">
+
+        <div *ngIf="userNameControl?.touched && userNameControl?.invalid" class="alert alert-danger">
+          <div *ngIf="userNameControl.errors?.required">User Name must required</div>
+          <div *ngIf="userNameControl.errors?.pattern">Please enter valid User Name</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Password">
+          Password:
+        </label>
+        <input type="text" name="password" [(ngModel)]="defTitle" pattern="[1-9]{10}" #passwordControl="ngModel" required class="form-control">
+        <div *ngIf="passwordControl?.touched && passwordControl?.invalid" class="alert alert-danger">
+          <div *ngIf="passwordControl.errors?.required">Please Enter Password</div>
+          <div *ngIf="passwordControl.errors?.pattern">Please enter valid Password</div>
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Submit</button><br>
+      <!-- <button type="link" name="link" class="btn btn-success" [disabled]="frm.invalid">Submit</button> -->
+      <br>
+      <button type="button" class="btn btn-link"></button>
+      <a routerLink = "/RegisterComponent">Create New Account</a>
+    </form>
+  <!-- </div> -->
+</div>

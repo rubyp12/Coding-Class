@@ -1,0 +1,46 @@
+<div class="container">
+    <!-- <div class="jumbotron"> -->
+      <form #frm="ngForm" (ngSubmit)="register(frm)" ngNativeValidate *ngIf="!toggleForm">
+        <br><br><br>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Registration Form</h3>
+          </div>
+        </div>     
+        <div class="form-group">
+          <label for="Name">
+              Name:
+          </label>
+          <input type="text" name="name" [(ngModel)]="name" required pattern="[a-zA-Z][a-zA-Z]+" #nameControl="ngModel" class="form-control">
+  
+          <div *ngIf="nameControl?.touched && nameControl?.invalid" class="alert alert-danger">
+            <div *ngIf="nameControl.errors?.required">Name must required</div>
+            <div *ngIf="nameControl.errors?.pattern">Please enter correct name</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">
+            Create Password:
+          </label>
+          <input type="text" name="password" [(ngModel)]="password" #idControl="ngModel" required class="form-control">
+          <div *ngIf="passwordControl?.touched && idControl?.invalid" class="alert alert-danger">
+            <div *ngIf="passwordControl.errors?.required">Please enter Password</div>
+            <div *ngIf="idControl.errors?.pattern">Please enter valid password</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="number">
+              Mobile Number:
+            </label>
+            <input type="text" name="number" [(ngModel)]="number" #idControl="ngModel" required class="form-control">
+            <div *ngIf="passwordControl?.touched && idControl?.invalid" class="alert alert-danger">
+              <div *ngIf="passwordControl.errors?.required">Please enter number</div>
+              <div *ngIf="idControl.errors?.pattern">Please enter valid number</div>
+            </div>
+          </div>
+        <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Register</button><br>
+        
+      </form>  
+  </div>
+  
+  
