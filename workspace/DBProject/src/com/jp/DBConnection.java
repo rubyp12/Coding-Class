@@ -1,0 +1,70 @@
+package com.jp;
+
+import java.sql.*;
+
+public class DBConnection {
+	
+public static Connection getConnection() throws ClassNotFoundException, SQLException {
+	Connection con = null;
+	Class.forName("oracle.jdbc.OracleDriver");
+	System.out.println("JDBC Driver found and loaded!");
+	con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/orcl","hr","hr");
+	System.out.println("Connected to DB");
+	return con;
+	}
+
+
+public static boolean checkIfUserExists(String userName, String password) {
+	PreparedStatement st = null;
+	ResultSet rs = null;
+	Connection con = null;
+	
+	String sqlQuery = "Select count(*) from employees where FIRST_NAME=? and LAST_NAME=?";
+	try {
+		Connection con1 = DBConnection.getConnection();
+		PreparedStatement psmt = con1.prepareStatement("Select count(*)from Employees where fname=? and lname=?");
+		st.setString(1, userName);
+		st.setString(2, password);
+		
+		rs = st.executeQuery();
+		rs.next();
+		
+		int count =rs.getInt(1);
+		rs.close();
+		System.out.println(count);
+		if(count<0){
+			return true;
+		} else {
+			return false;
+				
+		}
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}finally {
+			
+			try{
+				rs.close();
+				st.close();
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+	return false;
+		
+}
+public ArrayList<String> getTablesname(){
+	Connection con =null;
+	ResultSet rs =null;
+	ArrayList<String> tables = new ArrayList<String>();
+	try{
+		con = DBConnection
+	}
+	
+}
+
+} 

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Login Portal</title>
+</head>
+
+<body>
+	<div>
+	<form name = "LoginForm" method="post" action = "/LoginServlet.asp"/>
+      <div class="form-group">
+        <label for="Name">
+          Name:
+        </label>
+        <input type="text" name="txtName" id="name>       
+        </div>
+		<br>
+      <div class="form-group">
+        <label for="Name">
+          Password:
+        </label>
+        <input type="password" name="txtPassword" id="txtPassword">       
+        </div>
+	<button type="Ok" name="button" value="Ok">Ok</button>
+	<button type="Ok" name="button" value="Cancel">Cancel</button>
+	</div>
+</body>
+
+
+</html>
